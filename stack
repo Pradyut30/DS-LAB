@@ -1,0 +1,65 @@
+/*Implementing stack using arrays*/
+#include<stdio.h>
+#include<stdlib.h>
+#define N 4
+int stack[N];
+int top=-1;
+void push();//function declaration for push
+void pop();//function declration for pop
+void display();//function declaration for display
+void main()
+{
+while(1)
+    {
+        int choice;
+        printf("enter the choice\n1.push\n2.pop\n3.display\n4.exit\n");
+        scanf("%d",&choice);
+switch(choice)//used for selection the desired option(push,pop,display,exit)
+        {
+            case 1:push();
+            break;
+            case 2:pop();
+            break;
+            case 3:display();
+            break;
+            case 4: exit(0);
+            break;
+            default:printf("invalid choice\n");//wrong selection
+        }
+    }
+}
+void push()//function for pushing an element into a stack
+{
+    int x;
+    if(top==(N-1))
+    {
+     printf("overflow\n");
+    }
+    else
+    {
+        printf("enter the element to be inserted\n");
+        scanf("%d",&x);
+        top++;
+        stack[top]=x;
+    }
+}
+void pop()//function for popping an element from the stack
+{
+    int item;
+    if(top==-1)
+    {
+    printf("underflow\n");
+    }
+else
+    {
+    item=stack[top];
+    top--;
+    printf("the popped item is %d\n",item);
+    }
+}
+void display()//function for displaying the stack elements
+{
+    int i;
+    for(i=top;i>=0;i--)
+    printf("%d\n",stack[i]);
+}
