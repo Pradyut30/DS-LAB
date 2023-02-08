@@ -1,6 +1,5 @@
-
-#include<stdio.h>
-#include<stdlib.h> //header files
+#include<stdio.h>//header file
+#include<stdlib.h> //header file
 
 struct node   // node creation
 {
@@ -14,19 +13,19 @@ void begin_insert()  // function to insert the element in the beginning
 {
   struct node *ptr;
   int item;
-  ptr=(struct node *)malloc(sizeof(struct node *));
+  ptr=(struct node *)malloc(sizeof(struct node *));  //dynamic memory allocation
  
   if(ptr==NULL)     // checking if the linked list is full
-  printf("Overflow");
+  printf("Overflow"); //cannot insert the data
  
   else
   {
-	printf("Enter the value : ");
+	printf("Enter the value : ");    //asking the user to enter the data
 	scanf("%d",&item);
 	ptr->data=item;
 	ptr->next=head;
 	head=ptr;
-	printf("Node inserted\n");
+	printf("Node inserted\n");	//node inserted
     
   }
 }
@@ -35,14 +34,14 @@ void last_insert()  //function to insert the element from the last
 {
   struct node *ptr,*temp;
   int item;
-  ptr=(struct node *)malloc(sizeof(struct node *));
+  ptr=(struct node *)malloc(sizeof(struct node *));	//dynamic memory allocation
  
   if(ptr==NULL)
   printf("Overflow");          // checking if the linked list is full
  
   else
   {
-	printf("Enter the value : ");
+	printf("Enter the value : ");	//asking the user to enter the data
 	scanf("%d",&item);
 	ptr->data=item;
     
@@ -50,7 +49,7 @@ void last_insert()  //function to insert the element from the last
 	{
   	ptr->next=NULL;
   	head=ptr;
-  	printf("Node insertes\n");
+  	printf("Node insertes\n");	//node inserted
 	}
     
 	else
@@ -62,7 +61,7 @@ void last_insert()  //function to insert the element from the last
   	}
   	temp->next=ptr;
   	ptr->next=NULL;
-  	printf("Node inserted\n");
+  	printf("Node inserted\n");		//node inserted
 	}
   }
 }
@@ -72,16 +71,15 @@ void random_insert()    //function to insert the element at the position you wan
 {
   struct node *ptr,*temp;
   int item,i,loc;
-  ptr=(struct node *)malloc(sizeof(struct node *));
- 
-  if(ptr==NULL)
+  ptr=(struct node *)malloc(sizeof(struct node *));	//dynamic memory allocation
+   if(ptr==NULL)
   {
 	printf("Overflow");
   }
  
   else
   {
-	printf("Enter value : ");
+	printf("Enter value : ");	//asking the user to enter the data
 	scanf("%d",&item);
 	ptr->data=item;
 	printf("Enter the location after which you want to insert: ");
@@ -98,7 +96,7 @@ void random_insert()    //function to insert the element at the position you wan
  	}
  	ptr->next=temp->next;
  	temp->next=ptr;
- 	printf("Node inserted\n");
+ 	printf("Node inserted\n");		//node inserted
    }
 }
 
@@ -107,14 +105,14 @@ void begin_delete()   // function to delete the element in the beginning
 {
   struct node *ptr;
   if(head==NULL)
-  printf("LIST IS EMPTY ");
+  printf("LIST IS EMPTY ");	//cannot enter element
  
   else
   {
 	ptr=head;
 	head=ptr->next;
 	free(ptr);
-	printf("Node deleted from beginning\n");
+	printf("Node deleted from beginning\n");	//node deleted
    }
 }
 
@@ -123,13 +121,13 @@ void last_delete()   //function to delete the element from the last
   struct node *ptr,*ptr1;
  
   if(head==NULL)
-  printf("list is empty");
+  printf("list is empty");			//no element in the list
  
   else if(head->next==NULL)
   {
 	head=NULL;
 	free(head);
-	printf("Only node of the list deleted \n");
+	printf("Only node of the list deleted \n");	//node deleted
   }
  
   else
@@ -143,7 +141,7 @@ void last_delete()   //function to delete the element from the last
     
 	ptr1->next=NULL;
 	free(ptr);
-	printf("Deleted node from the last");
+	printf("Deleted node from the last");	//node deleted
   }
 }
 
@@ -167,7 +165,7 @@ void delete_random() //function to delete the element at the position you want
  
   ptr1->next=ptr->next;
   free(ptr);
-  printf("Deleted Node %d",loc++);
+  printf("Deleted Node %d",loc++);	node deleted 
 }
 
 void display()  //function to display
@@ -176,7 +174,7 @@ void display()  //function to display
   ptr=head;
   if(ptr==NULL)   //checking if queue is empty
   {
-	printf("Underflow");
+	printf("Underflow");	//no elements present in the linked list
 	return ;
   }  
  
@@ -249,10 +247,6 @@ case 8: printf("Enter the value you want to search: ");
   return 0;
  
 }
-
-
-
-
 
 
 
